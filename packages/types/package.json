@@ -1,7 +1,7 @@
 {
 	"name": "@appadosal/types",
 	"version": "0.0.0",
-	"private": true,
+	"private": false,
 	"main": "./index.ts",
 	"types": "./index.ts",
 	"scripts": {
