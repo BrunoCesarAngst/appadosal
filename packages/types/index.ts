@@ -65,6 +65,7 @@ export type AppRouter = {
 		healthCheck: () => Promise<RouterOutputs["healthCheck"]>;
 		privateData: () => Promise<RouterOutputs["privateData"]>;
 	};
+} & {
 	healthCheck: {
 		useQuery: () => {
 			data: RouterOutputs["healthCheck"] | undefined;
