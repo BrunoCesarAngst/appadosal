@@ -13,4 +13,17 @@ export const auth = betterAuth({
 	emailAndPassword: {
 		enabled: true,
 	},
+	advanced: {
+		crossSubDomainCookies: {
+			enabled: true,
+			domain: ".appadosal-web.vercel.app",
+		},
+		defaultCookieAttributes: {
+			secure: true,
+			httpOnly: true,
+			sameSite: "none",
+			partitioned: true,
+		},
+		useSecureCookies: true,
+	},
 });
