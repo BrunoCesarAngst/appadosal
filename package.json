@@ -4,7 +4,6 @@
 	"workspaces": ["apps/*", "packages/*"],
 	"scripts": {
 		"check": "biome check --write .",
-		"prepare": "husky",
 		"dev": "pnpm -r dev",
 		"build": "pnpm -r build",
 		"check-types": "pnpm -r check-types",
