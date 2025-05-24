@@ -26,43 +26,18 @@ export interface RouterOutputs {
 
 // Tipo do router
 export type AppRouter = {
-	_def: {
-		_config: {
-			$types: {
-				ctx: { session: Session | null };
-				meta: Record<string, unknown>;
-			};
-			transformer: {
-				input: {
-					serialize: (data: unknown) => unknown;
-					deserialize: (data: unknown) => unknown;
-				};
-				output: {
-					serialize: (data: unknown) => unknown;
-					deserialize: (data: unknown) => unknown;
-				};
-			};
-			errorFormatter: unknown;
-			allowOutsideOfServer: boolean;
-			isServer: boolean;
-			isDev: boolean;
+	privateData: {
+		useQuery: () => {
+			data: RouterOutputs["privateData"] | undefined;
+			isLoading: boolean;
+			error: Error | null;
 		};
-		router: true;
-		procedures: {
-			healthCheck: {
-				input: RouterInputs["healthCheck"];
-				output: RouterOutputs["healthCheck"];
-			};
-			privateData: {
-				input: RouterInputs["privateData"];
-				output: RouterOutputs["privateData"];
-			};
-		};
-		record: unknown;
-		lazy: Record<string, unknown>;
 	};
-	createCaller: () => {
-		healthCheck: () => Promise<RouterOutputs["healthCheck"]>;
-		privateData: () => Promise<RouterOutputs["privateData"]>;
+	healthCheck: {
+		useQuery: () => {
+			data: RouterOutputs["healthCheck"] | undefined;
+			isLoading: boolean;
+			error: Error | null;
+		};
 	};
 };
