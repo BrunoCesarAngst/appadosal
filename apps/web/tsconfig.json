@@ -20,7 +20,8 @@
 			}
 		],
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["./src/*"],
+			"@appadosal/types": ["../../packages/types"]
 		}
 	},
 	"include": [
@@ -31,9 +32,5 @@
 		".next/types/**/*.ts"
 	],
 	"exclude": ["./node_modules"],
-	"references": [
-		{
-			"path": "../server"
-		}
-	]
+	"references": []
 }
