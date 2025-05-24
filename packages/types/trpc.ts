@@ -1,23 +1,8 @@
 import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
+import type { AppRouter } from "../../apps/server/src/routers";
 
 // Interface pura para o router
-export interface AppRouter {
-	healthCheck: {
-		input: never;
-		output: string;
-	};
-	privateData: {
-		input: never;
-		output: {
-			message: string;
-			user: {
-				id: string;
-				email: string;
-				name?: string | null;
-			};
-		};
-	};
-}
+export type { AppRouter };
 
 // Tipos úteis para o cliente
 export type RouterInput = inferRouterInputs<AppRouter>;
