@@ -1,0 +1,64 @@
+.turbo
+
+# Node
+node_modules/
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Next.js
+.next/
+out/
+dist/
+build/
+coverage/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Docker compose envs (caso use pasta separada)
+env/
+
+# SQLite database
+*.sqlite
+*.db
+data/
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+logs/
+
+# Cache
+.cache/
+.eslintcache
+.stylelintcache
+.parcel-cache/
+
+# Test
+coverage/
+.nyc_output/
+
+# Misc
+*.pem
+.vercel
+.turbo
+.vercel
+
