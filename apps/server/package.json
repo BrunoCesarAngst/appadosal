@@ -19,7 +19,8 @@
 		"@trpc/client": "^11.0.0",
 		"drizzle-orm": "^0.38.4",
 		"@libsql/client": "^0.14.0",
-		"better-auth": "^1.2.7"
+		"better-auth": "^1.2.7",
+		"types": "workspace:*"
 	},
 	"devDependencies": {
 		"@types/node": "^20",
