@@ -1,8 +1,8 @@
-import type { AppRouter } from "@appadosal/types";
 import { QueryCache, QueryClient } from "@tanstack/react-query";
 import { createTRPCClient, httpBatchLink } from "@trpc/client";
 import { createTRPCOptionsProxy } from "@trpc/tanstack-react-query";
 import { toast } from "sonner";
+import type { AppRouter } from "../../../server/src/routers";
 
 export const queryClient = new QueryClient({
 	queryCache: new QueryCache({
@@ -36,11 +36,4 @@ const trpcClient = createTRPCClient<AppRouter>({
 export const trpc = createTRPCOptionsProxy<AppRouter>({
 	client: trpcClient,
 	queryClient,
-	queryClientConfig: {
-		defaultOptions: {
-			queries: {
-				staleTime: 5 * 1000,
-			},
-		},
-	},
 });
