@@ -1,15 +1,12 @@
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
-import * as React from "react";
+import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-const DropdownMenu = React.forwardRef<
-	React.ElementRef<typeof DropdownMenuPrimitive.Root>,
-	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Root>
->(function DropdownMenu(props, ref) {
-	return <DropdownMenuPrimitive.Root ref={ref} data-slot="dropdown-menu" {...props} />;
-});
+function DropdownMenu(props: React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Root>) {
+	return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
+}
 
 function DropdownMenuPortal({
 	...props
