@@ -74,3 +74,10 @@ appadosal/
 - `cd apps/server && pnpm db:local`: Inicia o banco de dados SQLite local
 - `pnpm check`: Executa formatação e linting com Biome
 - `cd apps/web && pnpm generate-pwa-assets`: Gera recursos do PWA
+
+## Documentação
+
+- [Configuração de Testes](./docs/CONFIGURACAO_TESTES.md)
+- [Estratégia de Testes](./docs/ESTRATEGIA_TESTES.md)
+- [Melhorias](./docs/MELHORIAS.md)
+- [Fluxo](./docs/FLUXO.md)
