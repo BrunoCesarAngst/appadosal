@@ -1,5 +1,5 @@
 {
-	"buildCommand": "cd apps/web && pnpm build",
+	"buildCommand": "pnpm build",
 	"installCommand": "pnpm install --no-frozen-lockfile",
 	"framework": "nextjs",
 	"outputDirectory": "apps/web/.next",
@@ -8,7 +8,7 @@
 			"src": "apps/web/package.json",
 			"use": "@vercel/next",
 			"config": {
-				"buildCommand": "pnpm build",
+				"buildCommand": "cd apps/web && pnpm build",
 				"outputDirectory": ".next"
 			}
 		}
