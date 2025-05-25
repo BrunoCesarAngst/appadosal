@@ -1,77 +1,76 @@
 # appadosal
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines Next.js, Next, TRPC, and more.
+Este projeto foi criado com [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), uma stack moderna de TypeScript que combina Next.js, Next, TRPC e mais.
 
-## Features
+## Funcionalidades
 
-- **TypeScript** - For type safety and improved developer experience
-- **Next.js** - Full-stack React framework
-- **TailwindCSS** - Utility-first CSS for rapid UI development
-- **shadcn/ui** - Reusable UI components
-- **Next.js** - Full-stack React framework
-- **tRPC** - End-to-end type-safe APIs
-- **Node.js** - Runtime environment
-- **Drizzle** - TypeScript-first ORM
-- **SQLite/Turso** - Database engine
-- **Authentication** - Email & password authentication with Better Auth
-- **Husky** - Git hooks for code quality
-- **PWA** - Progressive Web App support
-- **Biome** - Linting and formatting
+- **TypeScript** - Para segurança de tipos e melhor experiência do desenvolvedor
+- **Next.js** - Framework React full-stack
+- **TailwindCSS** - CSS utilitário para desenvolvimento rápido de interface
+- **shadcn/ui** - Componentes de interface reutilizáveis
+- **tRPC** - APIs tipo-seguras de ponta a ponta
+- **Node.js** - Ambiente de execução
+- **Drizzle** - ORM com foco em TypeScript
+- **SQLite/Turso** - Motor de banco de dados
+- **Autenticação** - Autenticação com email e senha usando Better Auth
+- **Husky** - Hooks do Git para qualidade de código
+- **PWA** - Suporte a Progressive Web App
+- **Biome** - Linting e formatação
 
-## Getting Started
+## Primeiros Passos
 
-First, install the dependencies:
+Primeiro, instale as dependências:
 
 ```bash
 pnpm install
 ```
-## Database Setup
 
-This project uses SQLite with Drizzle ORM.
+## Configuração do Banco de Dados
 
-1. Start the local SQLite database:
+Este projeto usa SQLite com Drizzle ORM.
+
+1. Inicie o banco de dados SQLite local:
+
 ```bash
 cd apps/server && pnpm db:local
 ```
 
-2. Update your `.env` file in the `apps/server` directory with the appropriate connection details if needed.
+1. Atualize seu arquivo `.env` no diretório `apps/server` com os detalhes de conexão apropriados, se necessário.
 
-3. Apply the schema to your database:
+1. Aplique o esquema ao seu banco de dados:
+
 ```bash
 pnpm db:push
 ```
 
-
-Then, run the development server:
+Em seguida, execute o servidor de desenvolvimento:
 
 ```bash
 pnpm dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001) in your browser to see the web application.
+Abra [http://localhost:3001](http://localhost:3001) no seu navegador para ver a aplicação web.
 
-The API is running at [http://localhost:3000](http://localhost:3000).
+A API está rodando em [http://localhost:3000](http://localhost:3000).
 
+## Estrutura do Projeto
 
-
-## Project Structure
-
-```
+```txt
 appadosal/
 ├── apps/
-│   ├── web/         # Frontend application (Next.js)
-│   └── server/      # Backend API (Next, TRPC)
+│   ├── web/         # Aplicação frontend (Next.js)
+│   └── server/      # API backend (Next, TRPC)
 ```
 
-## Available Scripts
+## Scripts Disponíveis
 
-- `pnpm dev`: Start all applications in development mode
-- `pnpm build`: Build all applications
-- `pnpm dev:web`: Start only the web application
-- `pnpm dev:server`: Start only the server
-- `pnpm check-types`: Check TypeScript types across all apps
-- `pnpm db:push`: Push schema changes to database
-- `pnpm db:studio`: Open database studio UI
-- `cd apps/server && pnpm db:local`: Start the local SQLite database
-- `pnpm check`: Run Biome formatting and linting
-- `cd apps/web && pnpm generate-pwa-assets`: Generate PWA assets
+- `pnpm dev`: Inicia todas as aplicações em modo de desenvolvimento
+- `pnpm build`: Compila todas as aplicações
+- `pnpm dev:web`: Inicia apenas a aplicação web
+- `pnpm dev:server`: Inicia apenas o servidor
+- `pnpm check-types`: Verifica tipos TypeScript em todas as aplicações
+- `pnpm db:push`: Aplica alterações do esquema ao banco de dados
+- `pnpm db:studio`: Abre a interface do estúdio do banco de dados
+- `cd apps/server && pnpm db:local`: Inicia o banco de dados SQLite local
+- `pnpm check`: Executa formatação e linting com Biome
+- `cd apps/web && pnpm generate-pwa-assets`: Gera recursos do PWA
