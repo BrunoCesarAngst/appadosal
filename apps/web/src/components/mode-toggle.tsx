@@ -9,9 +9,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import type * as React from "react";
 
-const ModeToggle: React.FC = () => {
+const ModeToggle = () => {
 	const { setTheme } = useTheme();
 
 	return (
