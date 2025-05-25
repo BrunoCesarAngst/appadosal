@@ -3,6 +3,7 @@
 	"private": true,
 	"workspaces": ["apps/*", "packages/*"],
 	"scripts": {
+		"prepare": "husky",
 		"check": "biome check --write .",
 		"lint:md": "markdownlint \"**/*.md\" --fix",
 		"test": "jest",
