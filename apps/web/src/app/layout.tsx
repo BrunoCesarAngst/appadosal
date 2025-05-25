@@ -1,37 +1,27 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "../index.css";
 import Header from "@/components/header";
 import Providers from "@/components/providers";
+import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-	title: "appadosal",
-	description: "appadosal",
+export const metadata = {
+	title: "Appadosal",
+	description: "Aplicação moderna com Next.js, tRPC e mais",
 };
 
 export default function RootLayout({
 	children,
-}: Readonly<{
+}: {
 	children: React.ReactNode;
-}>) {
+}) {
 	return (
-		<html lang="en" suppressHydrationWarning>
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+		<html lang="pt-BR" suppressHydrationWarning>
+			<body className={inter.className}>
 				<Providers>
-					<div className="grid h-svh grid-rows-[auto_1fr]">
-						<Header />
-						{children}
-					</div>
+					<Header />
+					<main className="container mx-auto px-4 py-8">{children}</main>
+					<Toaster />
 				</Providers>
 			</body>
 		</html>
