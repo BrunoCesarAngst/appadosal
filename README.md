@@ -1,83 +1,127 @@
 # appadosal
 
-Este projeto foi criado com [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), uma stack moderna de TypeScript que combina Next.js, Next, TRPC e mais.
+Plataforma full-stack TypeScript organizada como monorepo, criada para explorar contratos tipo-seguros, autenticação, persistência e experiência instalável na web.
 
-## Funcionalidades
+O projeto funciona como um laboratório de engenharia de produto: front-end, servidor e banco de dados evoluem no mesmo workspace, mas mantêm responsabilidades explícitas.
 
-- **TypeScript** - Para segurança de tipos e melhor experiência do desenvolvedor
-- **Next.js** - Framework React full-stack
-- **TailwindCSS** - CSS utilitário para desenvolvimento rápido de interface
-- **shadcn/ui** - Componentes de interface reutilizáveis
-- **tRPC** - APIs tipo-seguras de ponta a ponta
-- **Node.js** - Ambiente de execução
-- **Drizzle** - ORM com foco em TypeScript
-- **SQLite/Turso** - Motor de banco de dados
-- **Autenticação** - Autenticação com email e senha usando Better Auth
-- **Husky** - Hooks do Git para qualidade de código
-- **PWA** - Suporte a Progressive Web App
-- **Biome** - Linting e formatação
+## Objetivos técnicos
 
-## Primeiros Passos
+- compartilhar tipos entre cliente e servidor;
+- reduzir divergências entre chamadas de API e implementação;
+- estruturar autenticação por e-mail e senha;
+- modelar persistência com migrações reproduzíveis;
+- oferecer experiência PWA;
+- manter validação, testes e formatação automatizados;
+- permitir evolução futura para outros clientes dentro do monorepo.
 
-Primeiro, instale as dependências:
+## Arquitetura
+
+```mermaid
+flowchart LR
+    U[Usuário] --> W[Web — Next.js e React]
+    W --> Q[Cliente tRPC]
+    Q --> A[API tipo-segura]
+    A --> S[Servidor Next.js]
+    S --> B[Better Auth]
+    S --> O[Drizzle ORM]
+    O --> D[SQLite / Turso]
+```
+
+## Organização do workspace
+
+```text
+appadosal/
+├── apps/
+│   ├── web/          # aplicação Next.js e experiência PWA
+│   └── server/       # API, autenticação e persistência
+├── packages/         # espaço para contratos e módulos compartilhados
+├── docs/             # decisões, testes e fluxo do sistema
+├── package.json
+└── pnpm-workspace.yaml
+```
+
+## Stack
+
+**Web**  
+`Next.js` · `React` · `TypeScript` · `Tailwind CSS` · `Radix UI` · `TanStack Query` · `TanStack Form` · `Zod`
+
+**Integração**  
+`tRPC` · contratos tipo-seguros de ponta a ponta
+
+**Servidor e dados**  
+`Next.js` · `Better Auth` · `Drizzle ORM` · `SQLite` · `Turso`
+
+**Qualidade**  
+`Jest` · `Testing Library` · `Biome` · `Markdownlint` · `Husky` · `lint-staged`
+
+## Execução local
+
+### Requisitos
+
+- Node.js compatível com as aplicações;
+- `pnpm 10.11.0`;
+- Turso CLI para execução local do banco.
+
+### Instalação
 
 ```bash
+git clone https://github.com/BrunoCesarAngst/appadosal.git
+cd appadosal
 pnpm install
 ```
 
-## Configuração do Banco de Dados
-
-Este projeto usa SQLite com Drizzle ORM.
-
-1. Inicie o banco de dados SQLite local:
+### Banco de dados
 
 ```bash
-cd apps/server && pnpm db:local
+cd apps/server
+pnpm db:local
 ```
 
-1. Atualize seu arquivo `.env` no diretório `apps/server` com os detalhes de conexão apropriados, se necessário.
-
-1. Aplique o esquema ao seu banco de dados:
+Em outro terminal, na raiz:
 
 ```bash
 pnpm db:push
-```
-
-Em seguida, execute o servidor de desenvolvimento:
-
-```bash
 pnpm dev
 ```
 
-Abra [http://localhost:3001](http://localhost:3001) no seu navegador para ver a aplicação web.
+Aplicação web: `http://localhost:3001`  
+Servidor: `http://localhost:3000`
 
-A API está rodando em [http://localhost:3000](http://localhost:3000).
+## Comandos principais
 
-## Estrutura do Projeto
-
-```txt
-appadosal/
-├── apps/
-│   ├── web/         # Aplicação frontend (Next.js)
-│   └── server/      # API backend (Next, TRPC)
+```bash
+pnpm dev             # inicia os workspaces
+pnpm build           # compila as aplicações
+pnpm check-types     # verifica tipos
+pnpm test            # executa testes
+pnpm test:coverage   # mede cobertura
+pnpm check           # valida e formata com Biome
+pnpm db:generate     # gera artefatos de migração
+pnpm db:migrate      # aplica migrações
+pnpm db:studio       # abre o Drizzle Studio
 ```
 
-## Scripts Disponíveis
+## Decisões de engenharia demonstradas
 
-- `pnpm dev`: Inicia todas as aplicações em modo de desenvolvimento
-- `pnpm build`: Compila todas as aplicações
-- `pnpm dev:web`: Inicia apenas a aplicação web
-- `pnpm dev:server`: Inicia apenas o servidor
-- `pnpm check-types`: Verifica tipos TypeScript em todas as aplicações
-- `pnpm db:push`: Aplica alterações do esquema ao banco de dados
-- `pnpm db:studio`: Abre a interface do estúdio do banco de dados
-- `cd apps/server && pnpm db:local`: Inicia o banco de dados SQLite local
-- `pnpm check`: Executa formatação e linting com Biome
-- `cd apps/web && pnpm generate-pwa-assets`: Gera recursos do PWA
+- monorepo com execução coordenada por workspaces;
+- fronteira tipo-segura entre cliente e servidor;
+- persistência modelada por schema e migrações;
+- autenticação tratada como capacidade transversal;
+- comandos distintos para desenvolvimento, build, tipos e banco;
+- documentação técnica mantida junto ao código;
+- hooks de Git para reduzir regressões antes do commit.
 
 ## Documentação
 
-- [Configuração de Testes](./docs/CONFIGURACAO_TESTES.md)
-- [Estratégia de Testes](./docs/ESTRATEGIA_TESTES.md)
-- [Melhorias](./docs/MELHORIAS.md)
-- [Fluxo](./docs/FLUXO.md)
+- [Configuração de testes](./docs/CONFIGURACAO_TESTES.md)
+- [Estratégia de testes](./docs/ESTRATEGIA_TESTES.md)
+- [Fluxo do sistema](./docs/FLUXO.md)
+- [Melhorias planejadas](./docs/MELHORIAS.md)
+
+## Estado do projeto
+
+Projeto público de portfólio e experimentação arquitetural. O foco está na estrutura técnica e na evolução do sistema, não na representação de um serviço oficial.
+
+---
+
+[Perfil de Bruno César Angst](https://github.com/BrunoCesarAngst) · [Site](https://brunoangst.com.br/)
