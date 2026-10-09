@@ -1,6 +1,12 @@
 # appadosal
 
-Plataforma full-stack TypeScript organizada como monorepo, criada para explorar contratos tipo-seguros, autenticação, persistência e experiência instalável na web.
+> **Status: projeto independente histórico, em estágio parcial e sem manutenção ativa.** É um laboratório de arquitetura, não um produto concluído nem uma aplicação comercial em funcionamento.
+
+**Origem e contribuição:** iniciado a partir do gerador open source [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack). O repositório documenta a configuração, experimentação e evolução desse ponto de partida; não reivindica a autoria integral do scaffolding ou de suas bibliotecas.
+
+**O que pode ser avaliado:** [configuração de autenticação](apps/server/src/lib/auth.ts), [API tRPC de exemplo](apps/server/src/routers/index.ts), [scripts do monorepo](package.json) e [documentação de evolução](MELHORIAS.md). Os endpoints de negócio e testes completos não foram demonstrados.
+
+Experimento full-stack em TypeScript organizado como monorepo, voltado a estudar contratos tipo-seguros, autenticação, persistência e fundamentos de experiência web.
 
 O projeto funciona como um laboratório de engenharia de produto: front-end, servidor e banco de dados evoluem no mesmo workspace, mas mantêm responsabilidades explícitas.
 
@@ -141,7 +147,7 @@ pnpm db:studio       # abre o Drizzle Studio
 
 ## Estado do projeto
 
-Projeto público de portfólio e experimentação arquitetural. O foco está na estrutura técnica e na evolução do sistema, não na representação de um serviço oficial.
+Projeto histórico interrompido. Seu valor está no exercício de integração e estruturação full-stack, não na demonstração de um produto comercial, sistema completo ou serviço oficial.
 
 ---
 
