@@ -14,6 +14,17 @@ O projeto funciona como um laboratório de engenharia de produto: front-end, ser
 
 **Como verificar:** consulte [package.json](package.json), `apps/` e [docs/](docs/), e reproduza o ambiente descrito abaixo.
 
+## Evidências no código (inspeção de outubro de 2026)
+
+| Implementação identificada | Onde conferir | Limite da evidência |
+| --- | --- | --- |
+| Configuração de autenticação por e-mail e senha com Better Auth e adapter Drizzle/SQLite | [auth.ts](apps/server/src/lib/auth.ts) | Configuração presente; funcionamento completo não testado |
+| Cliente de autenticação React apontando para URL do servidor | [auth-client.ts](apps/web/src/lib/auth-client.ts) | Integração configurada, não prova de fluxo ponta a ponta |
+| API tRPC com `healthCheck` público e `privateData` protegida por sessão | [routers/index.ts](apps/server/src/routers/index.ts) | **Escopo observado:** endpoints de exemplo; não atribuir funcionalidades de domínio inexistentes |
+| Teste básico de configuração com asserção simples | [setup.test.ts](src/__tests__/setup.test.ts) | Não mede cobertura do negócio nem robustez dos fluxos |
+
+**Resultado demonstrável:** esqueleto de arquitetura full-stack com autenticação e contratos tipados. **Não demonstrado:** produto pronto, implantação operacional ou redução mensurada de erros.
+
 ## Objetivos técnicos
 
 - compartilhar tipos entre cliente e servidor;
