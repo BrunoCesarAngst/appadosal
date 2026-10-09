@@ -4,6 +4,16 @@ Plataforma full-stack TypeScript organizada como monorepo, criada para explorar 
 
 O projeto funciona como um laboratório de engenharia de produto: front-end, servidor e banco de dados evoluem no mesmo workspace, mas mantêm responsabilidades explícitas.
 
+## Em um minuto: problema, solução e evidências
+
+- **Problema:** coordenar frontend, servidor e persistência reduzindo divergências entre contratos de API e tipos.
+- **Escopo do projeto:** laboratório público de arquitetura full-stack; não é apresentado como produto comercial em produção.
+- **Solução documentada:** monorepo com aplicações web/servidor, integração tRPC, autenticação e modelagem de dados com migrações.
+- **Tecnologias:** React, Next.js, TypeScript, tRPC, Better Auth, Drizzle, SQLite/Turso e pnpm.
+- **Resultado verificável:** scripts de build, verificação de tipos, testes e migração estão definidos em [package.json](package.json). A existência desses scripts não equivale a execução validada ou cobertura comprovada.
+
+**Como verificar:** consulte [package.json](package.json), `apps/` e [docs/](docs/), e reproduza o ambiente descrito abaixo.
+
 ## Objetivos técnicos
 
 - compartilhar tipos entre cliente e servidor;
